@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麦积山石窟详情 - 天水旅游</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=YOUR_API_KEY"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 返回上一页面的功能 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+        <i class="fa fa-arrow-left text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-white">返回</span>
+      </a>
+    </nav>
+  </header>
+  <!-- 景点详情内容 -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-neutral-dark mb-6 text-shadow-lg">麦积山石窟详情</h1>
+      <!-- 修改图片样式 -->
+      <img src="images/maijishnag.jpg" alt="麦积山石窟" class="w-full h-auto mb-6 rounded-lg shadow-lg max-w-[80%] mx-auto object-cover">
+      <p class="text-gray-600 text-lg mb-4">麦积山石窟为中国四大石窟之一，被誉为“东方雕塑馆”。它始建于后秦，历经北魏、西魏、北周、隋、唐、五代、宋、元、明、清等十多个王朝的不断开凿、重修，现存窟龛 221 座，各类造像 3938 件 10632 身，壁画 979.54 平方米。</p>
+      <p class="text-gray-600 text-lg mb-4">石窟的佛像雕刻精美绝伦，形态各异，生动地展现了不同时期的佛教艺术风格。这里的泥塑艺术更是一绝，泥塑像栩栩如生，细腻的线条和丰富的表情让人叹为观止。</p>
+      <p class="text-gray-600 text-lg mb-4">景区内还有美丽的自然风光，麦积山周围山奇林郁，溪石联映，风景优美，四季都有不同的景致，是旅游和摄影的好去处。</p>
+      <h2 class="text-xl font-bold text-neutral-dark mb-4 mt-8">门票信息</h2>
+      <p class="text-gray-600 text-lg mb-4">门票价格：¥90起。</p>
+      <h2 class="text-xl font-bold text-neutral-dark mb-4 mt-8">开放时间</h2>
+      <p class="text-gray-600 text-lg mb-4">夏季：08:00 - 17:30；冬季：09:00 - 16:30。</p>
+
+
+       <!-- 麦积山地图 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+          <h2 class="text-2xl font-bold text-neutral-dark mb-6 flex items-center">
+            <i class="fa fa-map-marker text-primary mr-2"></i>
+            麦积山地理位置
+          </h2>
+          <div id="map-container-maijishan" class="rounded-lg overflow-hidden h-32 bg-gray-100"></div>
+          <div class="mt-4 text-center">
+            <a href="https://uri.amap.com/marker?position=105.731234,34.351234&name=麦积山石窟" 
+              target="_blank"
+              class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all transform hover:scale-105 flex items-center justify-center space-x-2">
+              <i class="fa fa-map-signs"></i>
+              <span>路线规划</span>
+            </a>
+          </div>
+        </div>
+        <script>
+  // 麦积山地图初始化
+  const mapMaijishan = new AMap.Map('map-container-maijishan', {
+    zoom: 15,
+    center: [105.731234, 34.351234],
+    pitch: 60,
+    viewMode: '3D'
+  });
+
+  new AMap.Marker({
+    position: [105.731234, 34.351234],
+    map: mapMaijishan,
+    title: '麦积山石窟',
+    label: {
+      content: "世界文化遗产",
+      direction: 'bottom'
+    }
+  });
+  </script>
+    </div>
+  </section>
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+      }
+    });
+
+    // 在DOM加载完成后初始化地图
+document.addEventListener('DOMContentLoaded', function() {
+  // 创建地图实例
+  const map = new AMap.Map('map-container', {
+    zoom: 14,  // 默认缩放级别
+    center: [105.724171, 34.580925],  // 麦积山坐标
+    viewMode: '3D',  // 使用3D视图
+    features: ['bg', 'road']  // 显示背景和道路
+  });
+
+  // 添加缩放控件
+  map.addControl(new AMap.Zoom({
+    position: 'rb'  // 右下角
+  }));
+
+  // 添加比例尺
+  map.addControl(new AMap.Scale());
+
+  // 添加标记点
+  const marker = new AMap.Marker({
+    position: [105.724171, 34.580925],
+    title: '麦积山石窟'
+  });
+  map.add(marker);
+
+  // 添加信息窗口
+  const infoWindow = new AMap.InfoWindow({
+    content: '<div class="p-2 font-sans">麦积山石窟景区</div>',
+    offset: new AMap.Pixel(0, -30)
+  });
+  
+  // 点击标记显示信息窗口
+  marker.on('click', () => {
+    infoWindow.open(map, marker.getPosition());
+  });
+});
+  </script>
+</body>
+
+</html>

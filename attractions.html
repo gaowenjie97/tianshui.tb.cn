@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天水旅游 - 景点</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+            'sidebar-light': '#f9fafb',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+
+    /* 侧边栏样式 */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      background-color: #f9fafb;
+      color: #1F2937;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transition: width 0.3s ease;
+    }
+
+    /* 侧边栏菜单项样式 */
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      color: #1F2937;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* 侧边栏菜单项悬停效果 */
+    .sidebar a:hover {
+      background-color: rgba(22, 93, 255, 0.1);
+    }
+
+    /* 当前选中菜单项样式 */
+    .sidebar a.active {
+      background-color: #165DFF;
+      color: white;
+    }
+
+    /* 主体内容样式 */
+    .main-content {
+      margin-left: 200px;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 侧边栏 -->
+  <div class="sidebar">
+    <a href="#" class="flex items-center space-x-2 mb-6">
+      <i class="fa fa-map-marker text-primary text-2xl"></i>
+      <span class="text-xl font-bold text-primary">天水旅游</span>
+    </a>
+    <a href="index.html#hero" class="hover:text-secondary transition-colors">首页</a>
+    <a href="index.html#attractions" class="hover:text-secondary transition-colors active">景点</a>
+    <a href="index.html#food" class="hover:text-secondary transition-colors">美食</a>
+    <a href="index.html#guide" class="hover:text-secondary transition-colors">攻略</a>
+    <a href="index.html#reviews" class="hover:text-secondary transition-colors">评价</a>
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="main-content">
+    <!-- 景点介绍 -->
+    <section id="attractions" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">天水必游景点</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">探索天水的自然风光与人文历史，感受这座城市独特的魅力</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 原有的景点卡片 -->
+          <!-- 景点卡片1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/maijishnag.jpg" alt="麦积山石窟" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">麦积山石窟</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.5 (328条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">麦积山石窟为中国四大石窟之一，被誉为"东方雕塑馆"，保存了大量的佛教艺术珍品。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥90起</span>
+                <a href="maijishan.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 景点卡片2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/fuximiao.jpg" alt="伏羲庙" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">伏羲庙</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.0 (215条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">祭祀人文始祖伏羲的地方，中国现存最完整的伏羲祭祀建筑群，具有极高的历史文化价值。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥40起</span>
+                <a href="fuximiao.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 景点卡片3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/xianrenya.jpg" alt="仙人崖" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">仙人崖</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.5 (187条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">仙人崖以奇山、秀水、古寺、神泉而闻名，集自然风光与人文景观于一体，宛如仙境。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥40起</span>
+                <a href="xianrenya.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 新增景点卡片 -->
+          <!-- 景点卡片4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/ngs.jpg" alt="南郭寺" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">南郭寺</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.0 (150条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">南郭寺为陇右第一名刹，这里树木葱茏，古柏参天，风景优美，是天水的一处历史文化胜地。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥20起</span>
+                <a href="nanguosi.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 景点卡片5 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/yqg.jpg" alt="玉泉观" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">玉泉观</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">3.5 (100条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">依山而建的道教圣地，红墙绿瓦与蓝天白云相映，登顶可俯瞰天水全景，千年古柏与玉泉井三味泉增添神秘感。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥30起</span>
+                <a href="yuquanguan.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 景点卡片6 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/jts.jpg" alt="净土寺" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">净土寺</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.2 (120条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">净土寺风景秀丽，湖水清澈，周边青山环绕，是休闲度假的好地方。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥15起</span>
+                <a href="jingtusi.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

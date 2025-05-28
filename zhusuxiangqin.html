@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天水旅游 - 住宿推荐详情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+            'sidebar-light': '#f9fafb',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 返回上一页面的功能 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+        <i class="fa fa-arrow-left text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-white">返回</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- 主体内容 -->
+  <div class="main-content pt-20 bg-gray-100"> <!-- 添加浅色背景色 -->
+    <!-- 住宿详情头部 -->
+    <section class="py-10 bg-white"> <!-- 减少内边距 -->
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8"> <!-- 减少外边距 -->
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-2">天水住宿推荐详情</h2> <!-- 减少外边距 -->
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">为您详细介绍天水不同预算和风格的住宿选择</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 高档酒店 -->
+    <section class="py-10 bg-neutral"> <!-- 减少内边距 -->
+      <div class="container mx-auto px-4">
+        <h3 class="text-xl font-bold mb-4">市中心豪华酒店推荐</h3> <!-- 减少外边距 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> <!-- 减少间距 -->
+          <!-- 酒店1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-48 overflow-hidden"> <!-- 减少高度 -->
+              <img src="images/tshhdjd.jpg" alt="酒店1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h4 class="text-white text-xl font-bold p-4">天水豪华大酒店</h4> <!-- 减少内边距 -->
+              </div>
+            </div>
+            <div class="p-4"> <!-- 减少内边距 -->
+              <div class="flex items-center mb-2"> <!-- 减少外边距 -->
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.8 (568条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-2">位于市中心，交通便利，周边配套设施齐全。酒店拥有豪华的客房、一流的餐饮服务和完善的休闲设施，让您享受高品质的住宿体验。</p> <!-- 减少外边距 -->
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">价格: ¥800起</span>
+              </div>
+            </div>
+          </div>
+          <!-- 酒店2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-48 overflow-hidden"> <!-- 减少高度 -->
+              <img src="images/gjjd.jpg" alt="酒店2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h4 class="text-white text-xl font-bold p-4">天水国际大酒店</h4> <!-- 减少内边距 -->
+              </div>
+            </div>
+            <div class="p-4"> <!-- 减少内边距 -->
+              <div class="flex items-center mb-2"> <!-- 减少外边距 -->
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.7 (432条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-2">酒店设计时尚，服务周到。房间宽敞明亮，视野开阔。设有多个餐厅和会议室，满足您的商务和休闲需求。</p> <!-- 减少外边距 -->
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">价格: ¥900起</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 特色民宿 -->
+    <section class="py-10 bg-white"> <!-- 减少内边距 -->
+      <div class="container mx-auto px-4">
+        <h3 class="text-xl font-bold mb-4">景区特色民宿体验</h3> <!-- 减少外边距 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> <!-- 减少间距 -->
+          <!-- 民宿1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-48 overflow-hidden"> <!-- 减少高度 -->
+              <img src="images/mjsms2.jpg" alt="民宿1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h4 class="text-white text-xl font-bold p-4">麦积山特色民宿</h4> <!-- 减少内边距 -->
+              </div>
+            </div>
+            <div class="p-4"> <!-- 减少内边距 -->
+              <div class="flex items-center mb-2"> <!-- 减少外边距 -->
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.5 (212条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-2">坐落于麦积山景区附近，周边风景优美。民宿采用传统建筑风格，房间布置温馨舒适，让您感受浓郁的地方特色。</p> <!-- 减少外边距 -->
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">价格: ¥300起</span>
+              </div>
+            </div>
+          </div>
+          <!-- 民宿2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-48 overflow-hidden"> <!-- 减少高度 -->
+              <img src="images/xryms.jpg" alt="民宿2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h4 class="text-white text-xl font-bold p-4">仙人崖山居民宿</h4> <!-- 减少内边距 -->
+              </div>
+            </div>
+            <div class="p-4"> <!-- 减少内边距 -->
+              <div class="flex items-center mb-2"> <!-- 减少外边距 -->
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.5 (189条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-2">位于仙人崖景区内，空气清新，环境宜人。民宿提供农家美食和特色活动，让您深入体验当地生活。</p> <!-- 减少外边距 -->
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">价格: ¥350起</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 经济实惠型酒店 -->
+    <section class="py-10 bg-neutral"> <!-- 减少内边距 -->
+      <div class="container mx-auto px-4">
+        <h3 class="text-xl font-bold mb-4">经济实惠型酒店指南</h3> <!-- 减少外边距 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> <!-- 减少间距 -->
+          <!-- 酒店3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-48 overflow-hidden"> <!-- 减少高度 -->
+              <img src="images/kjjd.jpg" alt="酒店3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h4 class="text-white text-xl font-bold p-4">天水快捷酒店</h4> <!-- 减少内边距 -->
+              </div>
+            </div>
+            <div class="p-4"> <!-- 减少内边距 -->
+              <div class="flex items-center mb-2"> <!-- 减少外边距 -->
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.0 (321条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-2">价格实惠，性价比高。房间干净整洁，提供基本的住宿设施。酒店位置便利，周边有许多餐厅和商店。</p> <!-- 减少外边距 -->
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">价格: ¥200起</span>
+              </div>
+            </div>
+          </div>
+          <!-- 酒店4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-48 overflow-hidden"> <!-- 减少高度 -->
+              <img src="images/swjd.jpg" alt="酒店4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h4 class="text-white text-xl font-bold p-4">天水商务酒店</h4> <!-- 减少内边距 -->
+              </div>
+            </div>
+            <div class="p-4"> <!-- 减少内边距 -->
+              <div class="flex items-center mb-2"> <!-- 减少外边距 -->
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.0 (287条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-2">适合商务出行和预算有限的旅客。酒店提供免费早餐和无线网络，服务周到。</p> <!-- 减少外边距 -->
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">价格: ¥220起</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+      }
+    });
+  </script>
+</body>
+
+</html>

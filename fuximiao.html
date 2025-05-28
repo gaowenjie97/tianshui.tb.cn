@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伏羲庙详情 - 天水旅游</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=YOUR_KEY"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 返回上一页面的功能 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+        <i class="fa fa-arrow-left text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-white">返回</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- 景点详情内容 -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-neutral-dark mb-6 text-shadow-lg">伏羲庙详情</h1>
+      <!-- 缩小图片比例 -->
+      <img src="images/fuxi.jpg" alt="伏羲庙" class="w-full h-auto mb-6 rounded-lg shadow-lg max-w-[80%] mx-auto object-cover">
+
+      <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-2/3">
+            <p class="text-gray-600 text-lg mb-4">伏羲庙，是中国西北地区著名古建筑群之一，原名太昊宫，俗称人宗庙，位于甘肃省天水市秦州区西关伏羲路。一九六三年被甘肃省人民政府公布为甘肃省重点文物保护单位，现为全国重点文物保护单位。</p>
+            <p class="text-gray-600 text-lg mb-4">伏羲庙坐北朝南，临街而建，院落重重相套，四进四院，宏阔幽深。庙内古建筑包括戏楼、牌坊、大门、仪门、先天殿、太极殿、钟楼、鼓楼、来鹤厅共10座；新建筑有朝房、碑廊、展览厅等共6座。新旧建筑共计76间。整个建筑群采用均衡对称的格局，布局严谨规则，具有鲜明的中国传统建筑艺术风格。</p>
+            <p class="text-gray-600 text-lg mb-4">伏羲庙是为纪念人文始祖伏羲氏而修建的祭祀庙宇，是中国现存最完整的明代祭祀伏羲的建筑群，被誉为"华夏第一庙"。每年农历正月十六日伏羲诞辰日和农历五月十三日（传说中龙的生日），这里都会举办盛大的祭典活动，吸引了众多海内外华人前来寻根祭祖。</p>
+          </div>
+
+          <div class="md:w-1/3 bg-neutral rounded-lg p-6">
+            <h3 class="text-xl font-bold text-neutral-dark mb-4 flex items-center">
+              <i class="fa fa-info-circle text-primary mr-2"></i>
+              基本信息
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <i class="fa fa-map-marker text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">甘肃省天水市秦州区伏羲路110号</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-clock-o text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">夏季：08:00 - 18:00<br>冬季：08:30 - 17:30</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-ticket text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">门票价格：¥20</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-star text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">国家AAAA级旅游景区</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-bus text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">公交：2路、21路、22路、24路至伏羲庙站</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <!-- 图片样式 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+            <img src="images/xiantiandian.jpg" alt="先天殿" class="w-3/4 h-32 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">先天殿</h3>
+              <p class="text-gray-600">伏羲庙的主体建筑，殿内有伏羲圣像，高3米有余，手托八卦，目光如炬，造型逼真，栩栩如生。</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+            <img src="images/taijige.jpg" alt="太极殿" class="w-3/4 h-32 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">太极殿</h3>
+              <p class="text-gray-600">又称退殿、寝殿，是伏羲庙的第二大殿，殿内有伏羲泥塑彩绘像，神态庄重肃穆。</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+            <img src="images/gubai.jpg" alt="古柏" class="w-3/4 h-32 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">古柏</h3>
+              <p class="text-gray-600">伏羲庙内原有古柏64株，是按照伏羲八卦推演的64卦方位栽植的，现存37株，树龄均在500年以上。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+          <h2 class="text-2xl font-bold text-neutral-dark mb-6 flex items-center">
+            <i class="fa fa-calendar text-primary mr-2"></i>
+            节庆活动
+          </h2>
+          <div class="space-y-4">
+            <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+              <div class="bg-primary/10 text-primary font-bold text-center rounded-lg px-4 py-2 w-24">
+                <span class="block text-sm">农历</span>
+                <span class="block text-xl">正月十六</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-neutral-dark mb-1">伏羲诞辰祭典</h3>
+                <p class="text-gray-600">每年农历正月十六日是伏羲诞辰日，天水市都会在伏羲庙举办隆重的祭典活动，祭祀中华民族的人文始祖伏羲。</p>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+              <div class="bg-primary/10 text-primary font-bold text-center rounded-lg px-4 py-2 w-24">
+                <span class="block text-sm">农历</span>
+                <span class="block text-xl">五月十三</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-neutral-dark mb-1">龙文化节</h3>
+                <p class="text-gray-600">农历五月十三日传说是龙的生日，天水市会举办龙文化节，包括祭祀仪式、舞龙表演等活动，弘扬龙文化。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 伏羲庙地图 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+          <h2 class="text-2xl font-bold text-neutral-dark mb-6 flex items-center">
+            <i class="fa fa-map-marker text-primary mr-2"></i>
+            伏羲庙地理位置
+          </h2>
+          <!-- 进一步缩小地图容器高度 -->
+          <div id="map-container-fuximiao" class="rounded-lg overflow-hidden h-32 bg-gray-100"></div>
+          <div class="mt-2 text-center">
+            <a href="https://uri.amap.com/marker?position=105.725678,34.587654&name=天水伏羲庙"
+              target="_blank"
+              class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full transition-all transform hover:scale-105 flex items-center justify-center space-x-2">
+              <i class="fa fa-map-signs"></i>
+              <span>路线规划</span>
+            </a>
+          </div>
+        </div>
+        <script>
+          // 伏羲庙地图初始化
+          const mapFuximiao = new AMap.Map('map-container-fuximiao', {
+            zoom: 16,
+            center: [105.725678, 34.587654],
+            pitch: 45,
+            viewMode: '3D'
+          });
+
+          new AMap.Marker({
+            position: [105.725678, 34.587654],
+            map: mapFuximiao,
+            title: '天水伏羲庙',
+            icon: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png',
+            label: {
+              content: "华夏第一庙",
+              direction: 'right'
+            }
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.add('text-neutral-dark');
+          link.classList.remove('text-white');
+        });
+        navbar.querySelector('#menu-toggle').classList.add('text-neutral-dark');
+        navbar.querySelector('#menu-toggle').classList.remove('text-white');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.remove('text-neutral-dark');
+          link.classList.add('text-white');
+        });
+        navbar.querySelector('#menu-toggle').classList.remove('text-neutral-dark');
+        navbar.querySelector('#menu-toggle').classList.add('text-white');
+      }
+    });
+
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+      } else {
+        menuToggle.innerHTML = '<i class="fa fa-times"></i>';
+      }
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 初始化高德地图
+    function initMap() {
+      const map = new AMap.Map('map-container', {
+        zoom: 16,  // 初始缩放级别
+        center: [105.724171, 34.580925],  // 伏羲庙坐标
+        mapStyle: 'amap://styles/grey'  // 灰色系地图样式
+      });
+
+      // 添加标记点
+      new AMap.Marker({
+        position: [105.724171, 34.580925],
+        map: map,
+        title: '天水伏羲庙'
+      });
+
+      // 添加缩放控件
+      map.plugin('AMap.Zoom', () => {
+        map.addControl(new AMap.Zoom({
+          position: 'rb'  // 右下角
+        }));
+      });
+    }
+
+    // 确保地图API加载完成后初始化
+    if (typeof AMap !== 'undefined') {
+      initMap();
+    } else {
+      window.onload = initMap;
+    }
+  </script>
+</body>
+
+</html>

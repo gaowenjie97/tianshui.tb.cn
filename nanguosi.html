@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天水旅游 - 南郭寺</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+            'sidebar-light': '#f9fafb',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+
+    /* 主体内容样式 */
+    .main-content {
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 返回上一页面的功能 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+        <i class="fa fa-arrow-left text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-white">返回</span>
+      </a>
+    </nav>
+  </header>
+  <!-- 主体内容 -->
+  <div class="main-content pt-20">
+    <!-- 景点详细介绍 -->
+    <section id="attraction-detail" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">南郭寺</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">探索南郭寺的自然风光与人文历史，感受这座古寺独特的魅力</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/2">
+            <img src="images/ngs.jpg" alt="南郭寺" class="w-full rounded-xl shadow-lg">
+          </div>
+          <div class="md:w-1/2">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <span class="text-gray-600 ml-2">4.5 (150条评价)</span>
+            </div>
+            <p class="text-gray-600 mb-4">始建于唐代，为纪念杜甫而建，寺内有"南山古柏"、"北流泉"等景点，是天水最古老的佛教寺院之一。</p>
+            <p class="text-gray-600 mb-4">天王殿：进入南郭寺山门后的重要建筑，门楣上悬挂着宋代书法家米芾书写的 “第一山” 白底黑字大匾。</p>
+            <p class="text-gray-600 mb-4">大雄宝殿：西院的核心建筑，供奉着主要的佛像，建筑风格庄严肃穆。</p>
+            <p class="text-gray-600 mb-4">南山古柏：被誉为南郭寺三绝之一，树龄已有 2300 年至 2500 年，初植年代大约与孔子诞生时间相仿，又称 “春秋柏”。
+              古柏树干斜倚，枝头绿叶葱茏，树干部分干枯，还形成了 “碑”“柏” 相伴相融的奇特景象。</p>
+            <p class="text-gray-600 mb-4">中院 关圣殿：曾被称为财神殿，传说最早是南郭寺的藏经楼，毁于大火，清乾隆年间在旧址改建。
+              月季园、盆景园：中院有月季园和盆景园，花开时节，繁花似锦，为寺院增添了几分生机与美丽。
+              东院
+              北流泉：又叫湫池，俗称八卦井，井口为六边形，水清澈见底，水质极好，与玉泉观上的玉泉井有异曲同工之妙，两泉南北相望，组成了天水独特的泉文化。</p>
+
+            <span class="text-primary font-semibold">门票: ¥25起</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.add('text-neutral-dark');
+          link.classList.remove('text-white');
+        });
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.remove('text-neutral-dark');
+          link.classList.add('text-white');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

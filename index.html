@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天水旅游 - 探索陇上江南的魅力</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+            'sidebar-light': '#f9fafb', // 新增浅色侧边栏颜色
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+
+    /* 侧边栏样式 */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      background-color: #f9fafb; /* 修改为浅色背景 */
+      color: #1F2937; /* 修改文字颜色 */
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+      transition: width 0.3s ease; /* 添加过渡效果 */
+    }
+
+    /* 侧边栏菜单项样式 */
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      color: #1F2937; /* 修改文字颜色 */
+      text-decoration: none;
+      padding: 10px 15px; /* 增加内边距 */
+      border-radius: 4px;
+      transition: background-color 0.3s ease; /* 添加过渡效果 */
+    }
+
+    /* 侧边栏菜单项悬停效果 */
+    .sidebar a:hover {
+      background-color: rgba(22, 93, 255, 0.1); /* 修改悬停背景颜色 */
+    }
+
+    /* 当前选中菜单项样式 */
+    .sidebar a.active {
+      background-color: #165DFF;
+      color: white; /* 修改选中项文字颜色 */
+    }
+
+    /* 主体内容样式 */
+    .main-content {
+      margin-left: 200px;
+    }
+
+    /* 优化建议提交区域样式 */
+    .suggestion-section {
+      background-color: #4aa8c4; /* 修改背景颜色 */
+      padding: 1rem 0; /* 进一步降低高度，减少内边距 */
+      text-align: center;
+    }
+
+    .suggestion-section h2 {
+      color: white;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: bold;
+      margin-bottom: 1rem; /* 减少底部外边距 */
+    }
+
+    .suggestion-section p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem; /* 减少底部外边距 */
+    }
+
+    .suggestion-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .suggestion-form textarea {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .suggestion-form button {
+      background-color: #165DFF;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: medium;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .suggestion-form button:hover {
+      background-color: rgba(22, 93, 255, 0.9);
+      transform: scale(1.05);
+    }
+
+    .suggestion-section .privacy-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-top: 1rem;
+    }
+
+    /* 页脚样式调整 */
+    footer {
+      padding-top: 4rem; /* 减少顶部内边距 */
+      padding-bottom: 2rem; /* 减少底部内边距 */
+    }
+
+    footer .grid {
+      justify-items: center; /* 使列居中对齐 */
+      text-align: center; /* 文本居中 */
+    }
+
+    footer h3 {
+      margin-bottom: 0.5rem; /* 减少标题与内容的间距 */
+    }
+
+    footer ul {
+      list-style-type: none; /* 移除列表样式 */
+      padding: 0; /* 移除默认内边距 */
+    }
+
+    footer ul li {
+      margin-bottom: 0.25rem; /* 减少列表项间距 */
+    }
+
+    /* 优化关于天水旅游栏布局 */
+    footer .about-ts {
+      text-align: left;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 侧边栏 -->
+  <div class="sidebar">
+    <a href="#" class="flex items-center space-x-2 mb-6">
+      <i class="fa fa-map-marker text-primary text-2xl"></i>
+      <span class="text-xl font-bold text-primary">天水旅游</span>
+    </a>
+    <a href="#hero" class="hover:text-secondary transition-colors">首页</a>
+    <a href="#attractions" class="hover:text-secondary transition-colors">景点</a>
+    <a href="#food" class="hover:text-secondary transition-colors">美食</a>
+    <a href="#guide" class="hover:text-secondary transition-colors">攻略</a>
+    <a href="#reviews" class="hover:text-secondary transition-colors">评价</a>
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="main-content">
+    <!-- 英雄区 -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="images/tianshui.jpg" alt="天水风景" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+
+      <div class="container mx-auto px-4 z-10 text-center">
+        <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-white mb-6 text-shadow-lg leading-tight">
+          探索天水<br>陇上江南的瑰宝
+        </h1>
+        <p class="text-[clamp(1rem,3vw,1.5rem)] text-white/90 mb-10 max-w-3xl mx-auto text-shadow">
+          千年文化积淀，自然风光旖旎，尽在这座丝绸之路上的历史文化名城
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <!-- 修改为 <a> 标签实现跳转 -->
+          <a href="attractions.html" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
+            探索景点
+          </a>
+          <a href="guide.html" class="bg-white/20 backdrop-blur hover:bg-white/30 text-white border border-white/30 px-8 py-3 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
+            查看攻略
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-0 right-0 text-center z-10">
+        <a href="#attractions" class="text-white animate-bounce inline-block">
+          <i class="fa fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- 景点介绍 -->
+    <section id="attractions" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">天水必游景点</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">探索天水的自然风光与人文历史，感受这座城市独特的魅力</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 景点卡片1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/maijishnag.jpg" alt="麦积山石窟" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">麦积山石窟</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.5 (328条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">麦积山石窟为中国四大石窟之一，被誉为"东方雕塑馆"，保存了大量的佛教艺术珍品。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥90起</span>
+                <!-- 修改为 <a> 标签实现跳转 -->
+                <a href="maijishan.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 景点卡片2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/fuximiao.jpg" alt="伏羲庙" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">伏羲庙</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.0 (215条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">祭祀人文始祖伏羲的地方，中国现存最完整的伏羲祭祀建筑群，具有极高的历史文化价值。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥40起</span>
+                <!-- 修改为 <a> 标签实现跳转 -->
+                <a href="fuximiao.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 景点卡片3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images/xianrenya.jpg" alt="仙人崖" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white text-xl font-bold p-6">仙人崖</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <span class="text-gray-600 ml-2">4.5 (187条评价)</span>
+              </div>
+              <p class="text-gray-600 mb-4">仙人崖以奇山、秀水、古寺、神泉而闻名，集自然风光与人文景观于一体，宛如仙境。</p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-semibold">门票: ¥40起</span>
+                <!-- 修改为 <a> 标签实现跳转 -->
+                <a href="xianrenya.html" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
+                  查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <!-- 修改为 <a> 标签实现跳转 -->
+          <a href="attractions.html" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full text-lg transition-all">
+            查看更多景点
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food" class="py-20 bg-neutral">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">天水美食</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">品味天水特色美食，体验独特的味蕾之旅</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 美食卡片1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="images/guagua.jpg" alt="天水呱呱" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">天水呱呱</h3>
+              <p class="text-gray-600 text-sm mb-3">甘肃天水的传统风味小吃，口感筋道，香辣可口，是当地人喜爱的早餐选择。</p>
+              <div class="flex justify-between items-center">
+                <span class="text-secondary font-medium">¥8/份</span>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 美食卡片2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="images/jiangshuimian.jpg" alt="浆水面" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">浆水面</h3>
+              <p class="text-gray-600 text-sm mb-3">以发酵后的酸菜汁为汤底，配以手工面条，清爽可口，尤其适合夏季食用。</p>
+              <div class="flex justify-between items-center">
+                <span class="text-secondary font-medium">¥12/碗</span>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 美食卡片3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="images/malatang.jpg" alt="麻辣烫" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">麻辣烫</h3>
+              <p class="text-gray-600 text-sm mb-3">天水麻辣烫以其“鲜、香、麻、辣”的独特风味和极具辨识度的地域特色闻名，堪称西北美食的“热辣名片”</p>
+              <div class="flex justify-between items-center">
+                <span class="text-secondary font-medium">¥15/份</span>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 美食卡片4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="images/tianpeizi.jpg" alt="甜胚子" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-neutral-dark mb-2">甜胚子</h3>
+              <p class="text-gray-600 text-sm mb-3">天水甜胚子是用燕麦或莜麦发酵制成的西北传统小吃，口感酸甜清爽，带有淡淡酒香。</p>
+              <div class="flex justify-between items-center">
+                <span class="text-secondary font-medium">¥5/碗</span>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 旅游攻略 -->
+    <section id="guide" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">旅游攻略</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">精心整理的天水旅游攻略，助您规划完美行程</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- 行程规划 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-calendar text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">最佳行程规划</h3>
+            <p class="text-gray-600 mb-4">根据不同的旅游天数，为您推荐最佳的行程安排，包括必游景点、美食推荐和住宿建议。</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>3天2晚经典游</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>深度文化探索之旅</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>自然风光摄影之旅</span>
+              </li>
+            </ul>
+            <!-- 修改为 <a> 标签实现跳转 -->
+            <a href="itinerary.html" class="text-primary hover:text-primary/80 font-medium flex items-center">
+              查看详细行程 <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+
+          <!-- 交通指南 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-road text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">交通指南</h3>
+            <p class="text-gray-600 mb-4">提供天水的交通信息，包括如何到达天水以及市内交通方式，让您的旅程更加顺畅。</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>飞机、火车、长途客车到达方式</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>市内公交、出租车、网约车指南</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>周边景点自驾游路线</span>
+              </li>
+            </ul>
+            <!-- 修改为 <a> 标签实现跳转 -->
+            <a href="jiaotongzhinan.html" class="text-primary hover:text-primary/80 font-medium flex items-center">
+              查看交通详情 <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+
+          <!-- 住宿推荐 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-bed text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">住宿推荐</h3>
+            <p class="text-gray-600 mb-4">从高档酒店到特色民宿，为您推荐不同预算和风格的住宿选择，让您住得舒适安心。</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>市中心豪华酒店推荐</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>景区特色民宿体验</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>经济实惠型酒店指南</span>
+              </li>
+            </ul>
+            <!-- 修改为 <a> 标签实现跳转 -->
+            <a href="zhusuxiangqin.html" class="text-primary hover:text-primary/80 font-medium flex items-center">
+              查看住宿详情 <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 建议提交区域 -->
+    <section id="reviews" class="suggestion-section">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2>游客评价及建议</h2>
+          <p>分享您的旅游体验和建议，帮助我们提升服务</p>
+          <form class="suggestion-form" id="suggestion-form">
+            <textarea placeholder="请输入您的建议"></textarea>
+            <button type="submit">提交</button>
+          </form>
+          <p class="privacy-text">我们尊重您的隐私，绝不会向第三方分享您的信息</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-neutral-dark text-white pt-4 pb-2"> <!-- 减少顶部和底部内边距 -->
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <!-- 关于我们 -->
+          <div class="about-ts">
+            <h3 class="text-lg font-bold mb-2">天水旅游文化</h3>
+            <p class="text-gray-400 text-sm mb-4">我们专注于提供全面实用的天水旅游信息，助您领略这座历史文化名城的魅力。</p>
+            <p class="text-gray-400 text-sm mb-4">天水，享有“陇上江南”之美誉，以深厚人文底蕴和秀丽自然风光吸引着众多游客。</p>
+            <p class="text-gray-400 text-sm mb-4">作为“羲皇故里”，伏羲庙承载着全球华人的寻根之情；麦积山石窟则以“东方雕塑陈列馆”闻名，7800余尊跨越千年的造像诉说着丝路艺术传奇。</p>
+          </div>
+
+          <!-- 快速链接 -->
+          <div>
+            <h3 class="text-lg font-bold mb-2">快速跳转</h3>
+            <ul class="space-y-2">
+              <li><a href="#hero" class="text-gray-400 hover:text-white transition-colors text-sm">首页</a></li>
+              <li><a href="#attractions" class="text-gray-400 hover:text-white transition-colors text-sm">景点</a></li>
+              <li><a href="#food" class="text-gray-400 hover:text-white transition-colors text-sm">美食</a></li>
+              <li><a href="#guide" class="text-gray-400 hover:text-white transition-colors text-sm">攻略</a></li>
+              <li><a href="#reviews" class="text-gray-400 hover:text-white transition-colors text-sm">评价</a></li>
+            </ul>
+          </div>
+
+          <!-- 联系我们 -->
+          <div>
+            <h3 class="text-lg font-bold mb-2">联系我们</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fa fa-map-marker text-secondary mt-1 mr-2 text-sm"></i>
+                <span class="text-gray-400 text-sm">甘肃省天水市秦州区旅游服务社区</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-phone text-secondary mt-1 mr-2 text-sm"></i>
+                <span class="text-gray-400 text-sm">0938-1234567</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-envelope text-secondary mt-1 mr-2 text-sm"></i>
+                <span class="text-gray-400 text-sm">tslyj0000@163.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-clock-o text-secondary mt-1 mr-2 text-sm"></i>
+                <span class="text-gray-400 text-sm">周一至周日 9:00 - 18:00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+       
+      </div>
+    </footer>
+
+    <script>
+      // 侧边栏当前选中菜单项处理
+      const sidebarLinks = document.querySelectorAll('.sidebar a:not(:first-child)');
+      const sections = ['hero', 'attractions', 'food', 'guide', 'reviews'];
+
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY;
+        sections.forEach((section, index) => {
+          const element = document.getElementById(section);
+          if (element.offsetTop <= scrollPosition + 80 && element.offsetTop + element.offsetHeight > scrollPosition + 80) {
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            sidebarLinks[index].classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink);
+      window.addEventListener('load', updateActiveLink);
+
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // 建议提交表单处理
+      const suggestionForm = document.getElementById('suggestion-form');
+      suggestionForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('提交成功');
+        // 清空表单
+        this.reset();
+      });
+    </script>
+</body>
+
+</html>

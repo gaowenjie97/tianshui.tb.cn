@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天水旅游 - 净土寺</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+            'sidebar-light': '#f9fafb',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+
+    /* 主体内容样式 */
+    .main-content {
+      padding: 20px;
+    }
+
+    /* 返回按钮样式 */
+    .back-button {
+      display: inline-block;
+      background-color: #165DFF;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    .back-button:hover {
+      background-color: rgba(22, 93, 255, 0.9);
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 返回上一页面的功能 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+        <i class="fa fa-arrow-left text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-white">返回</span>
+      </a>
+    </nav>
+  </header>
+  <!-- 主体内容 -->
+  <div class="main-content" style="margin-top: 60px;">
+    <!-- 景点详细介绍 -->
+    <section id="attraction-detail" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">净土寺</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">探索净土寺的自然风光与人文历史，感受这座寺庙独特的魅力</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/2">
+            <img src="images/jts.jpg" alt="净土寺" class="w-full rounded-xl shadow-lg">
+          </div>
+          <div class="md:w-1/2">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+              <span class="text-gray-600 ml-2">4.0 (120条评价)</span>
+            </div>
+            <p class="text-gray-600 mb-4">名称由来：自唐末宋初以来，先后以 “寄骨寺”“京都寺”“净土寺” 而演变。古称曼殊寺，因与佛教净土宗的教义有关，强调通过修行往生净土，故而得名净土寺。</p>
+            <p class="text-gray-600 mb-4">位于仙人崖景区，群山环绕，绿树成荫，被誉为"净土松涛"，是天水八大景观之一。寺内建筑错落有致，庄严肃穆。</p>
+            <p class="text-gray-600 mb-4">历史沿革：相传始建于东晋时期，距今已有 1600 多年历史，自唐末宋初以来，
+              先后以 “寄骨寺”“京都寺”“净土寺” 而演更。寺院原规模为清代早期所建，20 世纪被毁，现在人们看到的寺院，为故址重建。</p>
+            <p class="text-gray-600 mb-4">自然景观：净土寺四周群峰环绕，四周山坡上到处青松挺立，山风吹过时，松涛阵阵，有 “净土松涛” 之美景，是秦州十景之一。此外，文殊峰下的十八座山峰，
+              形成了 “十八罗汉拜文殊” 的独特景致，每座罗汉峰形似莲花瓣，十八座绿峰皆向文殊主峰朝拥，呈现出 “绿海宝莲” 的奇观。</p>
+            <p class="text-gray-600 mb-4">文化特色：每年春节期间，都会有大量外地游人及天水当地市民来到净土寺朝山、礼佛、为新年祈福。</p>
+            <span class="text-primary font-semibold">门票: ¥20起</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.add('text-neutral-dark');
+          link.classList.remove('text-white');
+        });
+        navbar.querySelector('#menu-toggle').classList.add('text-neutral-dark');
+        navbar.querySelector('#menu-toggle').classList.remove('text-white');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.remove('text-neutral-dark');
+          link.classList.add('text-white');
+        });
+        navbar.querySelector('#menu-toggle').classList.remove('text-neutral-dark');
+        navbar.querySelector('#menu-toggle').classList.add('text-white');
+      }
+    });
+  </script>
+</body>
+
+</html>

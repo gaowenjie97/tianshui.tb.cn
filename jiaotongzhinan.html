@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天水旅游 - 交通指南</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+            'sidebar-light': '#f9fafb',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+
+    /* 主体内容样式，去掉左侧边距 */
+    .main-content {
+      margin-left: 0;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 主体内容 -->
+  <div class="main-content">
+    <!-- 返回上一页面的功能 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+      <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+          <i class="fa fa-arrow-left text-primary text-2xl"></i>
+          <span class="text-xl font-bold text-white">返回</span>
+        </a>
+      </nav>
+    </header>
+    <!-- 交通指南部分 -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-neutral-dark mb-4">天水交通指南</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">提供详细的天水交通信息，助您的旅程更加顺畅</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- 到达天水 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-plane text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">到达天水</h3>
+            <h4 class="text-lg font-semibold mb-2">飞机</h4>
+            <p class="text-gray-600 mb-4">天水麦积山机场位于麦积区，目前已开通了至北京、上海、广州、深圳等城市的航线。到达机场后，您可以乘坐机场大巴或出租车前往市区。</p>
+            <h4 class="text-lg font-semibold mb-2">火车</h4>
+            <p class="text-gray-600 mb-4">天水有两个主要火车站，天水站和天水南站。天水站是陇海铁路上的重要站点，可到达国内多个城市；天水南站是高铁站，主要承担高铁和动车的运营，方便快捷。</p>
+            <h4 class="text-lg font-semibold mb-2">长途客车</h4>
+            <p class="text-gray-600 mb-4">天水市内有多个长途汽车站，可前往周边城市和省内其他地区。您可以根据自己的行程选择合适的汽车站和车次。</p>
+          </div>
+
+          <!-- 市内交通 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-bus text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">市内交通</h3>
+            <h4 class="text-lg font-semibold mb-2">公交</h4>
+            <p class="text-gray-600 mb-4">天水的公交线路覆盖了市区主要景点和商业区，票价一般为 1 - 2 元。部分公交线路支持手机支付，方便快捷。</p>
+            <h4 class="text-lg font-semibold mb-2">出租车</h4>
+            <p class="text-gray-600 mb-4">天水的出租车起步价为 5元，之后每公里收费 1.2 元。乘坐出租车时，请确保使用正规出租车，并要求司机打表计费。</p>
+            <h4 class="text-lg font-semibold mb-2">网约车</h4>
+            <p class="text-gray-600 mb-4">滴滴等网约车平台在天水也较为普及，您可以通过手机应用程序叫车，方便又实惠。</p>
+          </div>
+
+          <!-- 周边景点自驾游 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-car text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">周边景点自驾游</h3>
+            <p class="text-gray-600 mb-4">如果您选择自驾游，可以沿着 G30 连霍高速、G7011 十天高速等主要高速公路前往周边景点。天水周边的道路状况良好，但在山区行驶时请注意安全。</p>
+            <h4 class="text-lg font-semibold mb-2">麦积山石窟</h4>
+            <p class="text-gray-600 mb-4">从市区出发，沿着麦积山大道行驶约 48.2公里即可到达麦积山石窟。沿途风景秀丽，您可以欣赏到天水的自然风光。</p>
+            <h4 class="text-lg font-semibold mb-2">仙人崖</h4>
+            <p class="text-gray-600 mb-4">前往仙人崖可沿着麦积山大道继续前行，全程约 15 公里。景区周边有停车场，方便您停车。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+      }
+    });
+  </script>
+</body>
+
+</html>

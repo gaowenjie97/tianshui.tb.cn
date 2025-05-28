@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仙人崖详情 - 天水旅游</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 高德地图API -->
+<script src="https://webapi.amap.com/maps?v=2.0&key=YOUR_API_KEY"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#FF7D00',
+            accent: '#36D399',
+            neutral: '#F3F4F6',
+            'neutral-dark': '#1F2937',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-neutral-dark bg-gray-50">
+  <!-- 返回上一页面的功能 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" onclick="history.back(); return false;" class="flex items-center space-x-2">
+        <i class="fa fa-arrow-left text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-white">返回</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- 景点详情内容 -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-neutral-dark mb-6 text-shadow-lg">仙人崖详情</h1>
+      <img src="images/xry.jpg" alt="仙人崖" class="w-full h-auto mb-6 rounded-lg shadow-lg max-w-[80%] mx-auto object-cover">
+      
+      <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-2/3">
+            <p class="text-gray-600 text-lg mb-4">仙人崖位于甘肃省天水市麦积区东南45公里秦岭山脉西段，是麦积山风景名胜区的重要组成部分，集自然景观与人文景观于一体，以奇山、秀水、古寺、石窟、云海著称。</p>
+            <p class="text-gray-600 text-lg mb-4">仙人崖由三崖（东崖、西崖、南崖）、五峰（玉皇峰、宝盖峰、献珠峰、东崖峰、西崖峰）、六寺（木莲寺、石莲寺、铁莲寺、花莲寺、水莲寺、灵应寺）组成。这里地势险要，群峰对峙，树木葱茏，沟壑纵横，自然风光秀丽，人文景观丰富，是天水著名的旅游胜地和佛教圣地。</p>
+            <p class="text-gray-600 text-lg mb-4">仙人崖的寺宇始建于北魏时期，距今已有1600多年的历史。现存的建筑多为明清时期所建，寺内保存有大量的壁画、雕塑等艺术珍品，具有较高的历史和艺术价值。其中，灵应寺是仙人崖的主要寺庙，建在东崖的悬崖峭壁上，气势雄伟壮观。</p>
+          </div>
+          
+          <div class="md:w-1/3 bg-neutral rounded-lg p-6">
+            <h3 class="text-xl font-bold text-neutral-dark mb-4 flex items-center">
+              <i class="fa fa-info-circle text-primary mr-2"></i>
+              基本信息
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <i class="fa fa-map-marker text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">甘肃省天水市麦积区仙人崖景区</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-clock-o text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">夏季：08:00 - 18:00<br>冬季：08:30 - 17:30</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-ticket text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">门票价格：¥40</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-star text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">国家AAAA级旅游景区</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-bus text-primary mt-1 mr-3 w-5 text-center"></i>
+                <span class="text-gray-600">公交：麦积山专线至仙人崖站</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+          <img src="images/lys.jpg" alt="灵应寺" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">灵应寺</h3>
+            <p class="text-gray-600">仙人崖的主要寺庙，建在东崖的悬崖峭壁上，寺内保存有大量的壁画和雕塑，是仙人崖的精华所在。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+          <img src="images/baogaifeng.jpg" alt="宝盖峰" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">宝盖峰</h3>
+            <p class="text-gray-600">仙人崖五峰之一，因山峰形似宝盖而得名，是观赏仙人崖全景的最佳地点。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+          <img src="images/yuhuangge.jpg" alt="玉皇阁" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">玉皇阁</h3>
+            <p class="text-gray-600">位于玉皇峰之巅，是仙人崖的最高点，登临其上可俯瞰整个景区的壮丽景色。</p>
+          </div>
+        </div>
+      </div>
+     <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+  <h2 class="text-2xl font-bold text-neutral-dark mb-6 flex items-center">
+    <i class="fa fa-map-marker text-primary mr-2"></i>
+    地理位置
+  </h2>
+  <!-- 高德地图容器 -->
+  <div id="map-container" class="rounded-lg overflow-hidden h-32 bg-gray-100"></div>
+  
+  <!-- 地图操作按钮 -->
+  <div class="mt-4 text-center">
+    <a href="https://uri.amap.com/marker?position=105.732982,34.344555&name=仙人崖景区" 
+       target="_blank"
+       class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all transform hover:scale-105 flex items-center justify-center space-x-2">
+      <i class="fa fa-map-signs"></i>
+      <span>路线规划</span>
+    </a>
+  </div>
+</div>
+<script>
+  // 初始化地图
+  const map = new AMap.Map('map-container', {
+    zoom: 14,  // 缩放级别
+    center: [105.732982, 34.344555], // 仙人崖坐标
+    pitch: 65,  // 地图俯仰角度
+    viewMode: '3D' // 使用3D视图
+  });
+
+  // 添加标记点
+  const marker = new AMap.Marker({
+    position: [105.732982, 34.344555],
+    title: '仙人崖景区'
+  });
+  map.add(marker);
+
+  // 添加信息窗口
+  const infoWindow = new AMap.InfoWindow({
+    content: '<div class="p-2 font-sans"><b>仙人崖景区</b><br>国家AAAA级旅游景区</div>'
+  });
+  infoWindow.open(map, marker.getPosition());
+</script>
+    </div>
+  </section>
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        navbar.querySelector('a span').classList.add('text-primary');
+        navbar.querySelector('a span').classList.remove('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.add('text-neutral-dark');
+          link.classList.remove('text-white');
+        });
+        navbar.querySelector('#menu-toggle').classList.add('text-neutral-dark');
+        navbar.querySelector('#menu-toggle').classList.remove('text-white');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        navbar.querySelector('a span').classList.remove('text-primary');
+        navbar.querySelector('a span').classList.add('text-white');
+        navbar.querySelectorAll('nav > div > a:not(:last-child)').forEach(link => {
+          link.classList.remove('text-neutral-dark');
+          link.classList.add('text-white');
+        });
+        navbar.querySelector('#menu-toggle').classList.remove('text-neutral-dark');
+        navbar.querySelector('#menu-toggle').classList.add('text-white');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+      } else {
+        menuToggle.innerHTML = '<i class="fa fa-times"></i>';
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+    
